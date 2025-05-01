@@ -4,7 +4,7 @@ Full-stack web project that displays personal information. React frontend commun
 
 ## 🔧 Tech Stack
 
-- **Backend**: ASP.NET Core Web API
+- **Backend**: ASP.NET Core Web API, ASP.NET App Host, Postgresql
 - **Frontend**: React (Next.js with TypeScript)
 - **Styling**: (Coming soon) — optional Tailwind CSS
 - **Dev Tools**:

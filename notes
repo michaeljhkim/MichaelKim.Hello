@@ -1,9 +1,0 @@
-- dotnet webapi host: http://localhost:5238
-- next.js react host: http://localhost:3000
-
-- created simple helloworld
-- created simple readme
-
-- tomorrow, must modify project to include personal information, as well as a template of somekind to make the frontend prettier
-- Seperate the backend and frontend as two different repositories, and include them as submodules (once project is in a good enough state)
-- Create docker/dev container, 

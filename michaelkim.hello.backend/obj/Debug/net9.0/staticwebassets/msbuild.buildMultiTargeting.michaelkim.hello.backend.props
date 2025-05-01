@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/michaelkim.hello.backend.props" />
-</Project>

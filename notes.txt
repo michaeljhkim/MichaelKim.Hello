@@ -1,0 +1,12 @@
+https://learn.microsoft.com/en-us/dotnet/aspire/database/postgresql-integration?tabs=dotnet-cli
+
+- dotnet webapi host: http://localhost:5238
+- next.js react host: http://localhost:3000
+
+RUN BACKEND (from the apphost project):  dotnet run 
+RUN FRONTEND: npm run dev
+
+basic project structure for future reference:
+- There are 3 different asp dotnet projects in the backend that work with each other
+- apphost is the centeral hub of sorts, where it is able to host packages like postgresql and able to allow webapi to access it
+- service defaults does alot of the maintence from what I can understand?
