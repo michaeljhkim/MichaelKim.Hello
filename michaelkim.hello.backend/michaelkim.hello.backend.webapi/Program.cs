@@ -1,13 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
+// postgresql access
+builder.AddNpgsqlDataSource(connectionName: "michaelkim_hello_db");
+
 // Enable CORS
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy
-            .WithOrigins("http://localhost:3000")
+builder.Services.AddCors(options => {
+    options.AddDefaultPolicy(policy => {
+        policy.WithOrigins("http://localhost:3000")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials(); // Optional but can help in dev
@@ -16,18 +16,20 @@ builder.Services.AddCors(options =>
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+//builder.Services.AddOpenApi();
 
 var app = builder.Build();
+app.MapDefaultEndpoints();
 
 // Use CORS middleware
 app.UseCors();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+/*
+if (app.Environment.IsDevelopment()) {
     app.MapOpenApi();
 }
+*/
 
 app.UseHttpsRedirection();
 
@@ -35,13 +37,11 @@ app.UseHttpsRedirection();
 app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!"))
    .WithName("GetHelloWorld");
 
-var summaries = new[]
-{
+/*
+var summaries = new[] {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
-
-app.MapGet("/weatherforecast", () =>
-{
+app.MapGet("/weatherforecast", () => {
     var forecast =  Enumerable.Range(1, 5).Select(index =>
         new WeatherForecast
         (
@@ -53,11 +53,13 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
+*/
 
 // Other setup...
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
+/*
+record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary){
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }
+*/

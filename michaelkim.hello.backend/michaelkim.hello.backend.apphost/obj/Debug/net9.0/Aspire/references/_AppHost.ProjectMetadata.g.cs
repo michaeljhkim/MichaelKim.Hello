@@ -8,5 +8,5 @@ namespace Projects;
 public class michaelkim_hello_backend_apphost
 {
     private michaelkim_hello_backend_apphost() { }
-    public static string ProjectPath => """/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.apphost""";
+    public static string ProjectPath => """/workspace/michaelkim.hello.backend/michaelkim.hello.backend.apphost""";
 }

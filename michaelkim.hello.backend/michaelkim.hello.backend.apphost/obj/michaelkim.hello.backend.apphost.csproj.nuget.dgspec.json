@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.apphost/michaelkim.hello.backend.apphost.csproj": {}
+    "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.apphost/michaelkim.hello.backend.apphost.csproj": {}
   },
   "projects": {
-    "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.apphost/michaelkim.hello.backend.apphost.csproj": {
+    "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.apphost/michaelkim.hello.backend.apphost.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.apphost/michaelkim.hello.backend.apphost.csproj",
+        "projectUniqueName": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.apphost/michaelkim.hello.backend.apphost.csproj",
         "projectName": "michaelkim.hello.backend.apphost",
-        "projectPath": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.apphost/michaelkim.hello.backend.apphost.csproj",
-        "packagesPath": "/home/mk/.nuget/packages/",
-        "outputPath": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.apphost/obj/",
+        "projectPath": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.apphost/michaelkim.hello.backend.apphost.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.apphost/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/mk/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -74,18 +75,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.4, 9.0.4]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

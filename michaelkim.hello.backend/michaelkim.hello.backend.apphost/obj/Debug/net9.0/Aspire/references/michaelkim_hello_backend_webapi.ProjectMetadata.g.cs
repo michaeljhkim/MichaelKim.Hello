@@ -7,5 +7,5 @@ namespace Projects;
 [global::System.Diagnostics.DebuggerDisplay("Type = {GetType().Name,nq}, ProjectPath = {ProjectPath}")]
 public class michaelkim_hello_backend_webapi : global::Aspire.Hosting.IProjectMetadata
 {
-    public string ProjectPath => """/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj""";
+    public string ProjectPath => """/workspace/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj""";
 }

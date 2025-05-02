@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj": {}
+    "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj": {}
   },
   "projects": {
-    "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj": {
+    "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj",
+        "projectUniqueName": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj",
         "projectName": "michaelkim.hello.backend.servicedefaults",
-        "projectPath": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj",
-        "packagesPath": "/home/mk/.nuget/packages/",
-        "outputPath": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/obj/",
+        "projectPath": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/mk/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -84,12 +85,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.4, 9.0.4]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -98,34 +93,35 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj": {
+    "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj",
+        "projectUniqueName": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj",
         "projectName": "michaelkim.hello.backend.webapi",
-        "projectPath": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj",
-        "packagesPath": "/home/mk/.nuget/packages/",
-        "outputPath": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.webapi/obj/",
+        "projectPath": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.webapi/michaelkim.hello.backend.webapi.csproj",
+        "packagesPath": "/root/.nuget/packages/",
+        "outputPath": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.webapi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/mk/.nuget/NuGet/NuGet.Config"
+          "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "/usr/lib64/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj": {
-                "projectPath": "/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj"
+              "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj": {
+                "projectPath": "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.servicedefaults/michaelkim.hello.backend.servicedefaults.csproj"
               }
             }
           }
@@ -146,9 +142,25 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Aspire.Npgsql": {
+              "target": "Package",
+              "version": "[9.2.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL.Design": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             }
           },
           "imports": [
@@ -162,12 +174,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[9.0.4, 9.0.4]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -176,7 +182,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -11,21 +11,17 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("4b2b5f8f-754b-4281-9f8d-424d1fe508a4")]
-[assembly: System.Reflection.AssemblyMetadata("dcpclipath", "/home/mk/.nuget/packages/aspire.hosting.orchestration.linux-x64/9.2.1/tools/dcp")]
-[assembly: System.Reflection.AssemblyMetadata("dcpextensionpaths", "/home/mk/.nuget/packages/aspire.hosting.orchestration.linux-x64/9.2.1/tools/ext/")]
-[assembly: System.Reflection.AssemblyMetadata("dcpbinpath", ("/home/mk/.nuget/packages/aspire.hosting.orchestration.linux-x64/9.2.1/tools/ext/b" +
-    "in/"))]
-[assembly: System.Reflection.AssemblyMetadata("apphostprojectpath", ("/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.bac" +
-    "kend.apphost"))]
+[assembly: System.Reflection.AssemblyMetadata("dcpclipath", "/root/.nuget/packages/aspire.hosting.orchestration.linux-x64/9.2.1/tools/dcp")]
+[assembly: System.Reflection.AssemblyMetadata("dcpextensionpaths", "/root/.nuget/packages/aspire.hosting.orchestration.linux-x64/9.2.1/tools/ext/")]
+[assembly: System.Reflection.AssemblyMetadata("dcpbinpath", "/root/.nuget/packages/aspire.hosting.orchestration.linux-x64/9.2.1/tools/ext/bin/")]
+[assembly: System.Reflection.AssemblyMetadata("apphostprojectpath", "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.apphost")]
 [assembly: System.Reflection.AssemblyMetadata("apphostprojectname", "michaelkim.hello.backend.apphost.csproj")]
-[assembly: System.Reflection.AssemblyMetadata("aspiredashboardpath", ("/home/mk/.nuget/packages/aspire.dashboard.sdk.linux-x64/9.2.1/tools/Aspire.Dashbo" +
-    "ard"))]
-[assembly: System.Reflection.AssemblyMetadataAttribute("apphostprojectbaseintermediateoutputpath", ("/home/mk/Documents/MichaelKim.Hello/michaelkim.hello.backend/michaelkim.hello.bac" +
-    "kend.apphost/obj/"))]
+[assembly: System.Reflection.AssemblyMetadata("aspiredashboardpath", "/root/.nuget/packages/aspire.dashboard.sdk.linux-x64/9.2.1/tools/Aspire.Dashboard")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("apphostprojectbaseintermediateoutputpath", "/workspace/michaelkim.hello.backend/michaelkim.hello.backend.apphost/obj/")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("michaelkim.hello.backend.apphost")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6d8abaa748f3ee326f91b24758e93bd067bf5cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04029445ff52aad3afc6458747415e4d419fe61b")]
 [assembly: System.Reflection.AssemblyProductAttribute("michaelkim.hello.backend.apphost")]
 [assembly: System.Reflection.AssemblyTitleAttribute("michaelkim.hello.backend.apphost")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

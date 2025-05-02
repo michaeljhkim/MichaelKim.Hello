@@ -6,9 +6,26 @@ var hello_webapi = builder.AddProject<Projects.michaelkim_hello_backend_webapi>(
                             .WithEndpoint("http", port: 5000);
 */
 
+
+/*
+var postgres = builder.AddPostgres("postgres")
+                      .WithPgAdmin();
+*/
 var postgres = builder.AddPostgres("postgres");
-var postgresdb = postgres.AddDatabase("postgresdb");
+//var postgresdb = postgres.AddDatabase("postgresdb");
+
+// create a new database
+var databaseName = "michaelkim_hello_db";
+var creationScript = $$"""
+    -- Create the database
+    CREATE DATABASE {{databaseName}};
+
+    """;
+var db = postgres.AddDatabase(databaseName)
+                 .WithCreationScript(creationScript);
+
 var hello_webapi = builder.AddProject<Projects.michaelkim_hello_backend_webapi>("webapi")
-                            .WithReference(postgresdb);
+                            .WithReference(db)
+                            .WaitFor(db);
 
 builder.Build().Run();

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("michaelkim.hello.backend.webapi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6d8abaa748f3ee326f91b24758e93bd067bf5cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04029445ff52aad3afc6458747415e4d419fe61b")]
 [assembly: System.Reflection.AssemblyProductAttribute("michaelkim.hello.backend.webapi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("michaelkim.hello.backend.webapi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
