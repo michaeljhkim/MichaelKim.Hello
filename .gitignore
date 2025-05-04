@@ -1,0 +1,9 @@
+michaelkim.hello.backend/michaelkim.hello.backend.ApiService/bin/*
+michaelkim.hello.backend/michaelkim.hello.backend.AppHost/bin/*
+michaelkim.hello.backend/michaelkim.hello.backend.ServiceDefaults/bin/*
+michaelkim.hello.backend/michaelkim.hello.backend./bin/*
+
+michaelkim.hello.backend/michaelkim.hello.backend.ApiService/obj/*
+michaelkim.hello.backend/michaelkim.hello.backend.AppHost/obj/*
+michaelkim.hello.backend/michaelkim.hello.backend.ServiceDefaults/obj/*
+michaelkim.hello.backend/michaelkim.hello.backend./obj/*

@@ -1,0 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
+namespace AspireExistingDB.ApiService;
+
+public sealed class WeatherReport
+{
+    public int Id { get; set; }
+    [Required]
+    public DateTime Date { get; set; } = DateTime.Now;
+    [Required]
+    public int TemperatureC { get; set; } = 10;
+    public string? Summary { get; set; }
+}
+

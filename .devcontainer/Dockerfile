@@ -13,10 +13,14 @@ RUN dnf install -y \
 RUN rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-redhat-repo-2-1.noarch.rpm
 
 RUN dnf install -y \
-    postgresql pgadmin4 nodejs
+    postgresql pgadmin4
+    
+RUN dnf -y module install nodejs:20
 
 RUN dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && \
     dnf install -y docker
+
+RUN dotnet new install Aspire.ProjectTemplates
 
 
 # Default command: Start bash to interact with the container

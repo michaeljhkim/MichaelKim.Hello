@@ -12,3 +12,15 @@ basic project structure for future reference:
 - There are 3 different asp dotnet projects in the backend that work with each other
 - apphost is the centeral hub of sorts, where it is able to host packages like postgresql and able to allow webapi to access it
 - service defaults does alot of the maintence from what I can understand?
+
+EXAMPLES
+https://learn.microsoft.com/en-us/samples/dotnet/aspire-samples/aspire-angular-react-vue/
+
+
+- dashboard causes a single error where it fails to connect to an already used port
+- this error leads to many other errors (not fatal for now).
+
+- aspire dotnet allows for indirect sql querying through C# function, but does allow raw SQL commands: https://learn.microsoft.com/en-us/ef/core/querying/sql-queries?tabs=sqlserver
+
+TOMORROW:
+- must follow dotnet tutorial for sql connections.
