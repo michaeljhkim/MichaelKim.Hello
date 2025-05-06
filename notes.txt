@@ -1,5 +1,6 @@
 https://learn.microsoft.com/en-us/dotnet/aspire/database/postgresql-integration?tabs=dotnet-cli
 https://www.c-sharpcorner.com/article/building-a-powerful-asp-net-core-web-api-with-postgresql/
+https://www.nuget.org/packages/Npgsql.DependencyInjection
 
 
 - dotnet webapi host: http://localhost:5238
