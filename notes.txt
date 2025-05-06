@@ -24,3 +24,6 @@ https://learn.microsoft.com/en-us/samples/dotnet/aspire-samples/aspire-angular-r
 
 TOMORROW:
 - must follow dotnet tutorial for sql connections.
+
+
+- create a .env file or something that dotnet adds it's port to, and allow react to read from that file

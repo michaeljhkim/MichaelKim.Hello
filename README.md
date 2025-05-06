@@ -1,10 +1,10 @@
 # MichaelKim.Hello
 
-Full-stack web project that displays personal information. React frontend communicates with a .NET Web API backend.
+Full-stack web project that displays personal information. React frontend communicates with a ASP.NET backend that also intereacts with postgresql.
 
 ## 🔧 Tech Stack
 
-- **Backend**: ASP.NET Core Web API, ASP.NET App Host, Postgresql
+- **Backend**: ASP.NET Web API, ASP.NET App Host, ASP.NET Service Defaults, Postgresql
 - **Frontend**: React (Next.js with TypeScript)
 - **Styling**: (Coming soon) — optional Tailwind CSS
 - **Dev Tools**:
@@ -15,7 +15,7 @@ Full-stack web project that displays personal information. React frontend commun
 
 ## 🚀 Features
 
-- ✅ .NET API with simple endpoints like `/helloworld` and `/weatherforecast`
+- ✅ .NET API with simple endpoints like `/helloworld`
 - ✅ React frontend that fetches and displays backend data
 - ✅ CORS setup for cross-origin communication
 - ✅ HTTPS for secure development
