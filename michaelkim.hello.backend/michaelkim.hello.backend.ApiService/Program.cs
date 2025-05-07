@@ -3,7 +3,7 @@ using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
-builder.AddNpgsqlDataSource(connectionName: "HelloDB");
+builder.AddNpgsqlDataSource(connectionName: "postgresdb");
 
 // Add CORS service and specify allowed origins - need to directly note the address due to extension policy
 builder.Services.AddCors(options => {
@@ -37,6 +37,7 @@ app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!"))
 
 
 // --- TEST QUERYING ENDPOINTS ---
+/*
 app.MapGet("/hello_information1", async (NpgsqlDataSource dataSource) => {
     await using var connection = await dataSource.OpenConnectionAsync();
     await using var cmd = new NpgsqlCommand("SELECT id, name FROM items", connection);
@@ -60,7 +61,7 @@ app.MapGet("/hello_information2", async (NpgsqlConnection connection) => {
     await using var command = new NpgsqlCommand("SELECT first_name FROM hello_information LIMIT 1", connection);
     return "Hello World: " + await command.ExecuteScalarAsync();
 });
-
+*/
 
 
 app.Run();
