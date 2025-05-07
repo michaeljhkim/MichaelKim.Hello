@@ -4,11 +4,13 @@ var builder = DistributedApplication.CreateBuilder(args);
 var postgres = builder.AddPostgres("postgres");
                       //.WithPgAdmin();
 
-var databaseName = "hello_db";
+var databaseName = "HelloDB";
 var creationScript = $$"""
     -- Create the database
     CREATE DATABASE {{databaseName}};
+""";
 
+/*
     -- Create the table
     CREATE TABLE hello_information (
         person_id INT PRIMARY KEY,
@@ -21,8 +23,8 @@ var creationScript = $$"""
     );
 
     INSERT INTO hello_information (person_id, first_name, last_name, age, email, github, birth_date)
-    VALUES (0, 'Michael', 'Kim', '21', 'michaelkimwork47@gmail.com', https://github.com/michaeljhkim, '2003-09-08');
-""";
+    VALUES (0, 'Michael', 'Kim', 21, 'michaelkimwork47@gmail.com', 'https://github.com/michaeljhkim', '2003-09-08');
+*/
 
 var db = postgres.AddDatabase(databaseName)
                  .WithCreationScript(creationScript);

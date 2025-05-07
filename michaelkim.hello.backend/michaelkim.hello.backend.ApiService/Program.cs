@@ -3,7 +3,7 @@ using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
-builder.AddNpgsqlDataSource(connectionName: "hello_db");
+builder.AddNpgsqlDataSource(connectionName: "HelloDB");
 
 // Add CORS service and specify allowed origins - need to directly note the address due to extension policy
 builder.Services.AddCors(options => {
@@ -57,7 +57,7 @@ app.MapGet("/hello_information1", async (NpgsqlDataSource dataSource) => {
 // From nuget: https://www.nuget.org/packages/Npgsql.DependencyInjection
 app.MapGet("/hello_information2", async (NpgsqlConnection connection) => {
     await connection.OpenAsync();
-    await using var command = new NpgsqlCommand("SELECT number FROM data LIMIT 1", connection);
+    await using var command = new NpgsqlCommand("SELECT first_name FROM hello_information LIMIT 1", connection);
     return "Hello World: " + await command.ExecuteScalarAsync();
 });
 

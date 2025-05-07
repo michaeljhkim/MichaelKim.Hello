@@ -18,7 +18,7 @@ RUN dnf install -y \
 RUN dnf -y module install nodejs:20
 
 RUN dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && \
-    dnf install -y docker
+    dnf install -y docker-ce-cli
 
 RUN dotnet new install Aspire.ProjectTemplates
 
