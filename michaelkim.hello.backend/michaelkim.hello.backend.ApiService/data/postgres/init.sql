@@ -13,6 +13,6 @@ CREATE TABLE IF NOT EXISTS hello_info (
 
 -- Insert some sample data into the hello_info table
 INSERT INTO hello_info (first_name, last_name, age, email, github, birth_date)
-VALUES ('Michael', 'Kim', 21, 'michaelkimwork47@gmail.com', 'https://github.com/michaeljhkim', 2003-09-08);
+VALUES ('Michael', 'Kim', 21, 'michaelkimwork47@gmail.com', 'https://github.com/michaeljhkim', '2003-09-08');
 
 ON CONFLICT DO NOTHING;

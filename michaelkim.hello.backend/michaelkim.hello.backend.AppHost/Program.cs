@@ -1,8 +1,5 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-// WithBindMount requires absolute file path in relation to host and not dev container
-string host_absolute = Environment.GetEnvironmentVariable("HOST_WORKSPACE");    
-
 /*
 Create postgresql server. Added default values for testing.
 */
@@ -10,7 +7,7 @@ var databaseName = "hellodb";
 var postgresdb = builder.AddPostgres("postgres")
     .WithEnvironment("POSTGRES_DB", databaseName)
     .WithBindMount(
-        host_absolute + "/michaelkim.hello.backend/michaelkim.hello.backend.ApiService/data/postgres",
+        "../michaelkim.hello.backend.ApiService/data/postgres",
         "/docker-entrypoint-initdb.d"
     )
     .AddDatabase(databaseName);
