@@ -3,7 +3,7 @@ using Npgsql;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
-builder.AddNpgsqlDataSource(connectionName: "postgresdb");
+builder.AddNpgsqlDataSource(connectionName: "hellodb");
 
 // Add CORS service and specify allowed origins - need to directly note the address due to extension policy
 builder.Services.AddCors(options => {
@@ -11,22 +11,16 @@ builder.Services.AddCors(options => {
         policy.WithOrigins("http://localhost:3000")
             .AllowAnyHeader()
             .AllowAnyMethod()
-            .AllowCredentials(); // Optional but can help in dev
+            .AllowCredentials()
+            .SetIsOriginAllowed((host) => true);
     });
 });
 
 builder.Services.AddEndpointsApiExplorer();
-
 var app = builder.Build();
 
 // Use CORS middleware
 app.UseCors("AllowReactApp");
-/*
-app.UseCors(static builder => 
-    builder.AllowAnyMethod()
-        .AllowAnyHeader()
-        .AllowAnyOrigin());
-*/
 
 app.UseHttpsRedirection();
 app.MapDefaultEndpoints();
@@ -54,14 +48,14 @@ app.MapGet("/hello_information1", async (NpgsqlDataSource dataSource) => {
 
     return Results.Ok(items);
 });
+*/
 
 // From nuget: https://www.nuget.org/packages/Npgsql.DependencyInjection
-app.MapGet("/hello_information2", async (NpgsqlConnection connection) => {
+app.MapGet("/helloinfo", async (NpgsqlConnection connection) => {
     await connection.OpenAsync();
-    await using var command = new NpgsqlCommand("SELECT first_name FROM hello_information LIMIT 1", connection);
-    return "Hello World: " + await command.ExecuteScalarAsync();
+    await using var command = new NpgsqlCommand("SELECT first_name FROM hello_info LIMIT 1", connection);
+    return await command.ExecuteScalarAsync();
 });
-*/
 
 
 app.Run();

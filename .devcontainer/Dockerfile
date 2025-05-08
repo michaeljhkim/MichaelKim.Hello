@@ -1,26 +1,31 @@
-FROM quay.io/pypa/manylinux_2_34_x86_64
+#FROM quay.io/pypa/manylinux_2_34_x86_64
+FROM mcr.microsoft.com/devcontainers/base:bookworm
 
 WORKDIR /workspaces
 
 
-# Install necessary build tools and libraries
-RUN dnf install -y \
-    krb5-libs libicu openssl-libs zlib \
-    aspnetcore-runtime-9.0 aspnetcore-runtime-dbg-9.0 aspnetcore-targeting-pack-9.0 dotnet-apphost-pack-9.0 dotnet-host dotnet-hostfxr-9.0 \
-    dotnet-runtime-9.0 dotnet-runtime-dbg-9.0 dotnet-sdk-9.0 dotnet-sdk-9.0-source-built-artifacts dotnet-sdk-aot-9.0 dotnet-sdk-dbg-9.0 \
-    dotnet-targeting-pack-9.0 dotnet-templates-9.0 netstandard-targeting-pack-2.1
+# Install dotnet
+RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
+    dpkg -i packages-microsoft-prod.deb && \
+    rm packages-microsoft-prod.deb && \
+    apt-get update && \
+    apt-get install -y dotnet-sdk-9.0 aspnetcore-runtime-9.0 nodejs && \
+    dotnet new install Aspire.ProjectTemplates
 
-RUN rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-redhat-repo-2-1.noarch.rpm
+# Add the docker repository to Apt sources:
+RUN apt-get install ca-certificates curl && \
+    install -m 0755 -d /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc && \
+    chmod a+r /etc/apt/keyrings/docker.asc
 
-RUN dnf install -y \
-    postgresql pgadmin4
-    
-RUN dnf -y module install nodejs:20
+RUN echo \
+    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+    apt-get update && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-RUN dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo && \
-    dnf install -y docker-ce-cli
-
-RUN dotnet new install Aspire.ProjectTemplates
+RUN apt-get install -y postgresql
 
 
 # Default command: Start bash to interact with the container
