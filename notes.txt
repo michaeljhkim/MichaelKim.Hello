@@ -15,9 +15,6 @@ RUN FRONTEND: npm run dev
 - dashboard causes a single error where it fails to connect to an already used port
 - this error leads to many other errors (not fatal for now).
 
-- aspire dotnet allows for indirect sql querying through C# function, but does allow raw SQL commands: https://learn.microsoft.com/en-us/ef/core/querying/sql-queries?tabs=sqlserver
-- create a .env file or something that dotnet adds it's port to, and allow react to read from that file
-
 - always run the react side from host when developing, dashboard does not update until next run
 - run 'dotnet dev-certs https --trust' if the certificates are not authenticating properly
 
@@ -31,5 +28,8 @@ sudo systemctl restart docker
 - this fixes the issues immediately
 
 
+- aspire dotnet allows for indirect sql querying through C# function, but does allow raw SQL commands: https://learn.microsoft.com/en-us/ef/core/querying/sql-queries?tabs=sqlserver
+- create a .env file or something that dotnet adds it's port to, and allow react to read from that file
 
 
+- must credit https://github.com/ibelick/nim?tab=readme-ov-file#
