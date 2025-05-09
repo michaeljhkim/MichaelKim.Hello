@@ -26,6 +26,10 @@ RUN FRONTEND: npm run dev
 - and modify \w to \W
 - \w is for the full file path, \W is for just the current folder 
 
+- when testing and retrying dev container building, restart docker:
+sudo systemctl restart docker
+- this fixes the issues immediately
+
 
 
 

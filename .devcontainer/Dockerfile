@@ -1,31 +1,22 @@
 #FROM quay.io/pypa/manylinux_2_34_x86_64
-FROM mcr.microsoft.com/devcontainers/typescript-node:20-bookworm
+#FROM mcr.microsoft.com/devcontainers/base:bookworm
+#FROM mcr.microsoft.com/devcontainers/universal:2-focal
+FROM mcr.microsoft.com/devcontainers/dotnet:9.0-bookworm
+#when testing and retrying dev container building, restart docker: sudo systemctl restart docker
 
 WORKDIR /workspaces
 
+# postgresql and pgadmin 4 - will try and install later:
+RUN apt-get -y install curl ca-certificates && \
+    install -d /usr/share/postgresql-common/pgdg && \
+    curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc && \
+    . /etc/os-release && \
+    sh -c "echo 'deb [signed-by=/usr/share/postgresql-common/pgdg/apt.postgresql.org.asc] https://apt.postgresql.org/pub/repos/apt $VERSION_CODENAME-pgdg main' > /etc/apt/sources.list.d/pgdg.list" && \
+    curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg && \
+    sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update' && \
+    apt-get -y update
 
-# Install dotnet
-RUN wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb && \
-    dpkg -i packages-microsoft-prod.deb && \
-    rm packages-microsoft-prod.deb && \
-    apt-get update && \
-    apt-get install -y dotnet-sdk-9.0 aspnetcore-runtime-9.0 nodejs && \
-    dotnet new install Aspire.ProjectTemplates
-
-# Add the docker repository to Apt sources:
-RUN apt-get install ca-certificates curl && \
-    install -m 0755 -d /etc/apt/keyrings && \
-    curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc && \
-    chmod a+r /etc/apt/keyrings/docker.asc
-
-RUN echo \
-    "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-    sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && \
-    apt-get update && \
-    apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-RUN apt-get install -y postgresql
+RUN apt-get -y install postgresql pgadmin4
 
 
 # Default command: Start bash to interact with the container
