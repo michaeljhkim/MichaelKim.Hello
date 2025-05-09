@@ -20,7 +20,7 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-			"ms-vscode-remote.vscode-remote-extensionpack",
+			//"ms-vscode-remote.vscode-remote-extensionpack",
 			"ms-dotnettools.csharp",
 			"ms-dotnettools.csdevkit"
 			], 
@@ -29,8 +29,8 @@
 				"remote.autoForwardPortsSource": "hybrid",
 				"remote.otherPortsAttributes": {
 					"onAutoForward": "ignore"
-				}
-				//"dotnet.defaultSolution": "michaelkim.hello.backend/michaelkim.hello.backend.sln"
+				},
+				"dotnet.defaultSolution": "michaelkim.hello.backend/michaelkim.hello.backend.sln"
 			}
 		}
 	},
