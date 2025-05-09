@@ -1,8 +1,0 @@
-using Microsoft.EntityFrameworkCore;
-
-namespace AspireExistingDB.ApiService;
-
-public class WeatherDbContext(DbContextOptions options) : DbContext(options)
-{
-    public DbSet<WeatherReport> Forecasts => Set<WeatherReport>();
-}

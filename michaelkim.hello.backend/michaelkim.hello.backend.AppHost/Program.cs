@@ -12,12 +12,7 @@ var postgresdb = builder.AddPostgres("postgres")
     )
     .AddDatabase(databaseName);
 
-// Add the default database to the application model so that it can be referenced by other resources.
-//var postgresdb = postgres.AddDatabase(databaseName);
-
 var apiService = builder.AddProject<Projects.michaelkim_hello_backend_ApiService>("MKapiservice")
-    //.WithHttpsHealthCheck("/health")
-    //.WithReference(connectionString)
     .WithExternalHttpEndpoints()
     .WithReference(postgresdb)
     .WaitFor(postgresdb);

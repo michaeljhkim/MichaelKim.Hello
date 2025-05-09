@@ -1,5 +1,5 @@
 #FROM quay.io/pypa/manylinux_2_34_x86_64
-FROM mcr.microsoft.com/devcontainers/base:bookworm
+FROM mcr.microsoft.com/devcontainers/typescript-node:20-bookworm
 
 WORKDIR /workspaces
 

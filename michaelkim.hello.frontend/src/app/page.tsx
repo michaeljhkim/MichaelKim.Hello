@@ -12,7 +12,7 @@ export default function Home() {
 
 	fetch('/api/helloinfo')
 		.then((res) => res.text())
-		.then((data) => console.log("Data from backend:", data))
+		.then((data) => console.log("Data from postgresql backend 1:", data))
 		.catch((err) => console.error("Error fetching data:", err));
 
 	console.log("API URL from env:", process.env.HELLO_API);

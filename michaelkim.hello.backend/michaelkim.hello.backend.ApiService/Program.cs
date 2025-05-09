@@ -19,13 +19,20 @@ builder.Services.AddCors(options => {
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
-// Use CORS middleware
-app.UseCors("AllowReactApp");
-
 app.UseHttpsRedirection();
 app.MapDefaultEndpoints();
 
+// Use CORS middleware
+app.UseCors("AllowReactApp");
+/*
+app.UseCors(static builder => 
+    builder.AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowAnyOrigin());
+*/
+
 // Hello World endpoint
+//http://localhost:5431/helloworld
 app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!"))
    .WithName("GetHelloWorld");
 
