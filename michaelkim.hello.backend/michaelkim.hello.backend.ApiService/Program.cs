@@ -8,7 +8,7 @@ builder.AddNpgsqlDataSource(connectionName: "hellodb");
 // Add CORS service and specify allowed origins - need to directly note the address due to extension policy
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowReactApp", policy => {
-        policy.WithOrigins("http://localhost:3000")
+        policy.WithOrigins("http://localhost:3001")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials()
@@ -30,6 +30,7 @@ app.UseCors(static builder =>
         .AllowAnyHeader()
         .AllowAnyOrigin());
 */
+
 
 // Hello World endpoint
 //http://localhost:5431/helloworld

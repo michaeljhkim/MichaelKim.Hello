@@ -5,9 +5,10 @@
 		"dockerfile": "Dockerfile" 
 	},
 	"features": {
-		//"ghcr.io/devcontainers/features/azure-cli:1": {},
+    	"ghcr.io/devcontainers/features/sshd:1": {},
+		"ghcr.io/devcontainers/features/azure-cli:1": {},
 		//"ghcr.io/azure/azure-dev/azd:0": {},
-		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {},
+		//"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {},
 		"ghcr.io/devcontainers/features/docker-in-docker": {},
 		//"ghcr.io/dotnet/aspire-devcontainer-feature/dotnetaspire:1": {},
 		"ghcr.io/devcontainers/features/node:1": {},
@@ -25,12 +26,12 @@
 			"ms-dotnettools.csdevkit"
 			], 
 			"settings": {
-				"remote.autoForwardPorts": true,
+				//"remote.autoForwardPorts": true,
 				"remote.autoForwardPortsSource": "hybrid",
 				"remote.otherPortsAttributes": {
 					"onAutoForward": "ignore"
-				},
-				"dotnet.defaultSolution": "michaelkim.hello.backend/michaelkim.hello.backend.sln"
+				}
+				//"dotnet.defaultSolution": "michaelkim.hello.backend/michaelkim.hello.backend.sln"
 			}
 		}
 	},
