@@ -40,15 +40,40 @@ app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!"))
 --- SQL QUERYING --- (From nuget: https://www.nuget.org/packages/Npgsql.DependencyInjection)
 */
 
+//NOTE TO SELF: since these are currently just simple queries, I can just make a function that takes in a list of values and loop through these motions
+
+// first name query
 app.MapGet("/first_name", async (NpgsqlConnection connection) => {
     await connection.OpenAsync();
     await using var command = new NpgsqlCommand("SELECT first_name FROM hello_info LIMIT 1", connection);
     return await command.ExecuteScalarAsync();
 });
 
+// last name query
 app.MapGet("/last_name", async (NpgsqlConnection connection) => {
     await connection.OpenAsync();
     await using var command = new NpgsqlCommand("SELECT last_name FROM hello_info LIMIT 1", connection);
+    return await command.ExecuteScalarAsync();
+});
+
+// email query
+app.MapGet("/email", async (NpgsqlConnection connection) => {
+    await connection.OpenAsync();
+    await using var command = new NpgsqlCommand("SELECT email FROM hello_info LIMIT 1", connection);
+    return await command.ExecuteScalarAsync();
+});
+
+// github query
+app.MapGet("/Github", async (NpgsqlConnection connection) => {
+    await connection.OpenAsync();
+    await using var command = new NpgsqlCommand("SELECT github FROM hello_info LIMIT 1", connection);
+    return await command.ExecuteScalarAsync();
+});
+
+// linkedin query
+app.MapGet("/LinkedIn", async (NpgsqlConnection connection) => {
+    await connection.OpenAsync();
+    await using var command = new NpgsqlCommand("SELECT linkedin FROM hello_info LIMIT 1", connection);
     return await command.ExecuteScalarAsync();
 });
 

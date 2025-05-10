@@ -31,5 +31,7 @@ sudo systemctl restart docker
 - aspire dotnet allows for indirect sql querying through C# function, but does allow raw SQL commands: https://learn.microsoft.com/en-us/ef/core/querying/sql-queries?tabs=sqlserver
 - create a .env file or something that dotnet adds it's port to, and allow react to read from that file
 
-
 - must credit https://github.com/ibelick/nim?tab=readme-ov-file#
+
+- need to finish adding information to website tomorrow (data processing algorithm for much later)
+- after finishing just the personal information parts, find out how to host on azure
