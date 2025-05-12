@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
 // Conneting to Postgresql server created in AppHost
-builder.AddNpgsqlDataSource(connectionName: "hellodb");
+builder.AddNpgsqlDataSource(connectionName: "postgresdb");
 
 // Add CORS service and specify allowed origins - need to directly note the address due to extension policy
 builder.Services.AddCors(options => {
@@ -29,7 +29,7 @@ app.UseCors("AllowReactApp");
 
 
 // Hello World endpoint test: http://localhost:5431/helloworld
-app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!")).WithName("GetHelloWorld");
+//app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!")).WithName("GetHelloWorld");
 
 
 /*

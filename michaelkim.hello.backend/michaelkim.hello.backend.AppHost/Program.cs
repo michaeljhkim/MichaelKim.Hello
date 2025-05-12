@@ -1,8 +1,12 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
+var connectionString = builder.AddConnectionString("postgresdb");
+
 /*
-Create postgresql server. Added default values for testing.
+- Create postgresql server. Added default values for testing.
+- Will not use this in production due to costs. Instead, a postgresql server was created and hosted by 'supabase'
 */
+/*
 var databaseName = "hellodb";
 var postgresdb = builder.AddPostgres("postgres")
     .WithEnvironment("POSTGRES_DB", databaseName)
@@ -11,11 +15,12 @@ var postgresdb = builder.AddPostgres("postgres")
         "/docker-entrypoint-initdb.d"
     )
     .AddDatabase(databaseName);
+*/
 
 var apiService = builder.AddProject<Projects.michaelkim_hello_backend_ApiService>("MKapiservice")
     .WithExternalHttpEndpoints()
-    .WithReference(postgresdb)
-    .WaitFor(postgresdb);
+    .WithReference(connectionString)
+    .WaitFor(connectionString);
 
 builder.AddNpmApp("react", "../../michaelkim.hello.frontend")
     .WithReference(apiService)

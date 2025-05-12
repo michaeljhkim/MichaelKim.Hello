@@ -1,11 +1,11 @@
 # MichaelKim.Hello
 
-Full-stack web project that displays personal information. React frontend communicates with a .NET Aspire backend that interacts with postgresql.
+Full-stack web project that displays personal information. React frontend communicates with a .NET Aspire backend that interacts with a Postgresql database (via supabase).
 Also displays NASA photos for fun.
 
 ## 🔧 Tech Stack
 
-- **Backend**: .NET Aspire, Postgresql
+- **Backend**: .NET Aspire, Postgresql (via supabase)
 - **Frontend**: React (Next.js with TypeScript)
 - **Styling**: Tailwind CSS (nim-template)
 - **Dev Tools**: C#, Typescript, SQL, Docker

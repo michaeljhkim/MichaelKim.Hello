@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
 	},
 	{
 		name: 'HelixWatt (video is placeholder)',
-		description: '',
+		description: 'Full-stack Web Application that gathers data on energy consumption and applies an algorithm to predict future energy consumption.',
 		link: 'https://github.com/michaeljhkim/HelixWatt',
 		video:
 			'/videos/yurrgoht_engine_demo.mp4',
@@ -59,29 +59,13 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
 	{
-		company: 'Reglazed Studio',
-		title: 'CEO',
+		company: 'Bevy Foundation',
+		title: 'Volunteer Contributer',
 		start: '2024',
 		end: 'Present',
-		link: 'https://ibelick.com',
+		link: 'https://bevyengine.org/foundation/',
 		id: 'work1',
-	},
-	{
-		company: 'Freelance',
-		title: 'Design Engineer',
-		start: '2022',
-		end: '2024',
-		link: 'https://ibelick.com',
-		id: 'work2',
-	},
-	{
-		company: 'Freelance',
-		title: 'Front-end Developer',
-		start: '2017',
-		end: 'Present',
-		link: 'https://ibelick.com',
-		id: 'work3',
-	},
+	}
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
