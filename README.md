@@ -1,6 +1,6 @@
 # MichaelKim.Hello
 
-Full-stack web project that displays personal information and checks weather data. React frontend communicates with a .NET Aspire backend that interacts with postgresql.
+Full-stack web project that displays personal information. React frontend communicates with a .NET Aspire backend that interacts with postgresql.
 Also displays NASA photos for fun.
 
 ## 🔧 Tech Stack

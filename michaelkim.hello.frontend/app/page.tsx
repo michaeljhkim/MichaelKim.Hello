@@ -1,4 +1,5 @@
 'use client'
+import React, { useRef, useEffect } from 'react'
 import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
 import { Spotlight } from '@/components/ui/spotlight'
@@ -44,6 +45,18 @@ type ProjectVideoProps = {
 }
 
 function ProjectVideo({ src }: ProjectVideoProps) {
+	const triggerVideoRef = useRef<HTMLVideoElement>(null)
+	const dialogVideoRef = useRef<HTMLVideoElement>(null)
+
+	useEffect(() => {
+		if (triggerVideoRef.current) {
+			triggerVideoRef.current.playbackRate = 5.0
+		}
+		if (dialogVideoRef.current) {
+			dialogVideoRef.current.playbackRate = 5.0
+		}
+	}, [])
+
 	return (
 		<MorphingDialog
 			transition={{
@@ -54,6 +67,7 @@ function ProjectVideo({ src }: ProjectVideoProps) {
 		>
 			<MorphingDialogTrigger>
 				<video
+					ref={triggerVideoRef}
 					src={src}
 					autoPlay
 					loop
@@ -64,6 +78,7 @@ function ProjectVideo({ src }: ProjectVideoProps) {
 			<MorphingDialogContainer>
 				<MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
 					<video
+						ref={dialogVideoRef}
 						src={src}
 						autoPlay
 						loop
@@ -139,7 +154,8 @@ export default function Personal() {
 			>
 				<div className="flex-1">
 					<p className="text-zinc-600 dark:text-zinc-400">
-						This website was created using .NET Aspire, the data was managed with Postgresql, and hosted on Microsoft Azure.
+						The backend for this web application was created using .NET Aspire, with data being managed by Postgresql, and hosted on Microsoft Azure.
+						The frontend was developed using React and Next.js Typescript.
 					</p>
 				</div>
 			</motion.section>
