@@ -1,6 +1,6 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-
+// Connection String is taken from Azure's environment config
 var connectionString = builder.AddConnectionString("hellodb");
 
 /*

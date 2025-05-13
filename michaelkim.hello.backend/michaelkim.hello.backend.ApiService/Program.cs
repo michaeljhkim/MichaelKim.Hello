@@ -4,34 +4,18 @@ using Npgsql;
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
-// Conneting to Postgresql server created in AppHost
+/*
+- Connecting to Postgresql server database (Supabase) - configured by connection string in apphost
+- Connection String is taken from Azure's environment config
+*/
 builder.AddNpgsqlDataSource("hellodb");
 
-// Add CORS service and specify allowed origins - need to directly note the address due to extension policy
-/*
-builder.Services.AddCors(options => {
-    options.AddPolicy("AllowReactApp", policy => {
-        policy.WithOrigins("http://localhost:3001")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials()
-            .SetIsOriginAllowed((host) => true);
-    });
-});
-*/
 
 // Standard boilerplate code
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 app.UseHttpsRedirection();
 app.MapDefaultEndpoints();
-
-// Use CORS middleware
-//app.UseCors("AllowReactApp");
-
-
-// Hello World endpoint test: http://localhost:5431/helloworld
-//app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!")).WithName("GetHelloWorld");
 
 
 /*
