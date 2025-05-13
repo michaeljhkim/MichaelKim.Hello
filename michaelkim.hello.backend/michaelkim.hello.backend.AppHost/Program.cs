@@ -1,5 +1,6 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
+
 var connectionString = builder.AddConnectionString("hellodb");
 
 /*

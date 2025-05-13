@@ -31,7 +31,7 @@ app.MapDefaultEndpoints();
 
 
 // Hello World endpoint test: http://localhost:5431/helloworld
-app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!")).WithName("GetHelloWorld");
+//app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!")).WithName("GetHelloWorld");
 
 
 /*
