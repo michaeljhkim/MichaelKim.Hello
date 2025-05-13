@@ -154,7 +154,7 @@ export default function Personal() {
 			>
 				<div className="flex-1">
 					<p className="text-zinc-600 dark:text-zinc-400">
-						The backend for this web application was created using .NET Aspire, with data being managed by Postgresql, and hosted on Microsoft Azure.
+						The backend for this web application was created using .NET Aspire, and hosted on Microsoft Azure. Personal information is recieved from a Postgresql server hosted on Supabase.
 						The frontend was developed using React and Next.js Typescript.
 					</p>
 				</div>

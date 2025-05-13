@@ -33,5 +33,13 @@ sudo systemctl restart docker
 
 - must credit https://github.com/ibelick/nim?tab=readme-ov-file#
 
-- need to finish adding information to website tomorrow (data processing algorithm for much later)
-- after finishing just the personal information parts, find out how to host on azure
+
+REMEMBER:
+- must login to azure before doing anything:
+    az login
+
+- 'azd init' in the backend folder
+- 'dotnet publish' in apiservice folder
+- deploy the resulting publish folder. Its in '/bin/Release/net9.0' (right-click for ease of use)
+- CLI: 
+    az webapp deploy --resource-group michaelkim-hello --name michaelkim-hello-backend-apiservice --src-path ./bin/Release/net9.0/publish

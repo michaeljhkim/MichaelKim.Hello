@@ -5,9 +5,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
 // Conneting to Postgresql server created in AppHost
-builder.AddNpgsqlDataSource(connectionName: "postgresdb");
+builder.AddNpgsqlDataSource("hellodb");
 
 // Add CORS service and specify allowed origins - need to directly note the address due to extension policy
+/*
 builder.Services.AddCors(options => {
     options.AddPolicy("AllowReactApp", policy => {
         policy.WithOrigins("http://localhost:3001")
@@ -17,6 +18,7 @@ builder.Services.AddCors(options => {
             .SetIsOriginAllowed((host) => true);
     });
 });
+*/
 
 // Standard boilerplate code
 builder.Services.AddEndpointsApiExplorer();
@@ -25,11 +27,11 @@ app.UseHttpsRedirection();
 app.MapDefaultEndpoints();
 
 // Use CORS middleware
-app.UseCors("AllowReactApp");
+//app.UseCors("AllowReactApp");
 
 
 // Hello World endpoint test: http://localhost:5431/helloworld
-//app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!")).WithName("GetHelloWorld");
+app.MapGet("/helloworld", () => Results.Ok("Hello World from .NET!")).WithName("GetHelloWorld");
 
 
 /*
