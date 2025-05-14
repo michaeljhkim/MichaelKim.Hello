@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+
+Sitemap: https://gray-water-0fed75c0f.6.azurestaticapps.net/sitemap.xml

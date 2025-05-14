@@ -5,7 +5,7 @@ type Project = {
 	name: string
 	description: string
 	link: string
-	video: string
+	media: string
 	id: string
 }
 
@@ -37,24 +37,32 @@ interface LoopingVideoProps {
   className?: string;
 }
 
-
+// Media can be an image or video
 export const PROJECTS: Project[] = [
 	{
 		name: 'Yurrgoht Game Engine',
 		description:
 			'A Vulkan game engine developed using the Entity Component structure. Includes Scripting, GUI Editing, and reflection-based serialization.',
 		link: 'https://github.com/michaeljhkim/YURRGOHT_ENGINE',
-		video: '/videos/yurrgoht_engine_demo.mp4',
+		media: '/videos/yurrgoht_engine_demo.mp4',
 		id: 'project1',
 	},
 	{
 		name: 'HelixWatt (video is placeholder)',
-		description: 'Full-stack Web Application that gathers data on energy consumption and applies an algorithm to predict future energy consumption.',
+		description: 'Database Application that process energy consumption data to predict future energy consumption.',
 		link: 'https://github.com/michaeljhkim/HelixWatt',
-		video:
+		media:
 			'/videos/yurrgoht_engine_demo.mp4',
 		id: 'project2',
 	},
+	{
+		name: 'PT-Gen',
+		description: 'Accurate path-tracing algorithm, generating standard resolution images',
+		link: 'https://github.com/michaeljhkim/PT-ImGen',
+		media:
+			'/images/ray_trace_demo.png',
+		id: 'project3',
+	}
 ]
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
@@ -94,7 +102,9 @@ export const BLOG_POSTS: BlogPost[] = [
 // This functions retreievs the data from a specified endpoint
 export function getData(endpoint_name: string) {
 	const [data, setData] = useState<string>("Loading...");
-	fetch("/api/" + endpoint_name)
+	console.log(`${process.env.HELLO_API}/${endpoint_name}`);
+	
+	fetch(`${process.env.HELLO_API}/${endpoint_name}`)
 		.then((res) => res.text())
 		.then((text) => {
 			console.log("Data from backend (postgresql):", text);

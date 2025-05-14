@@ -11,13 +11,7 @@ export function Header() {
 				<Link href="/" className="font-medium text-black dark:text-white text-[24px]">
 					{getData("first_name") + " " + getData("last_name")}
 				</Link>
-				<TextEffect
-					as="p"
-					preset="fade"
-					per="char"
-					className="text-zinc-600 dark:text-zinc-500"
-					delay={0.5}
-				>
+				<TextEffect as="p" preset="fade" per="char" className="text-zinc-600 dark:text-zinc-500" delay={0.5}>
 					3rd Year Computer Science
 				</TextEffect>
 			</div>

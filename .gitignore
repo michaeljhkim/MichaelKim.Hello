@@ -1,3 +1,4 @@
+# Backend build file
 michaelkim.hello.backend/michaelkim.hello.backend.ApiService/bin/*
 michaelkim.hello.backend/michaelkim.hello.backend.AppHost/bin/*
 michaelkim.hello.backend/michaelkim.hello.backend.ServiceDefaults/bin/*
@@ -7,3 +8,48 @@ michaelkim.hello.backend/michaelkim.hello.backend.ApiService/obj/*
 michaelkim.hello.backend/michaelkim.hello.backend.AppHost/obj/*
 michaelkim.hello.backend/michaelkim.hello.backend.ServiceDefaults/obj/*
 michaelkim.hello.backend/michaelkim.hello.backend./obj/*
+
+michaelkim.hello.backend/publish.zip
+
+
+# Frontend
+
+# dependencies
+michaelkim.hello.frontend/node_modules
+michaelkim.hello.frontend/.pnp
+michaelkim.hello.frontend/.pnp.*
+michaelkim.hello.frontend/.yarn/*
+!michaelkim.hello.frontend/.yarn/patches
+!michaelkim.hello.frontend/.yarn/plugins
+!michaelkim.hello.frontend/.yarn/releases
+!michaelkim.hello.frontend/.yarn/versions
+
+# testing
+michaelkim.hello.frontend/coverage
+
+# next.js
+michaelkim.hello.frontend/.next/
+michaelkim.hello.frontend/out/
+
+# production
+michaelkim.hello.frontend/build
+
+# misc
+michaelkim.hello.frontend/.DS_Store
+michaelkim.hello.frontend/*.pem
+
+# debug
+michaelkim.hello.frontend/npm-debug.log*
+michaelkim.hello.frontend/yarn-debug.log*
+michaelkim.hello.frontend/yarn-error.log*
+michaelkim.hello.frontend/.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+michaelkim.hello.frontend/.env*
+
+# vercel
+michaelkim.hello.frontend/.vercel
+
+# typescript
+michaelkim.hello.frontend/*.tsbuildinfo
+michaelkim.hello.frontend/next-env.d.ts

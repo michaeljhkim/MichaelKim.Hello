@@ -11,7 +11,9 @@ if (!backendUrl) {
 
 const nextConfig: NextConfig = {
 	webpack: (config, { isServer }) => config,
+	output: "export",
 
+	/*
 	async rewrites() {
 		if (!backendUrl) {
 			throw new Error("Cannot create rewrite rule: MKapiservice URL is undefined.");
@@ -23,6 +25,7 @@ const nextConfig: NextConfig = {
 			},
 		];
 	},
+	*/
 
 	env: {
 		HELLO_API: backendUrl ?? "", // Provide fallback to avoid "undefined"

@@ -10,7 +10,6 @@ builder.AddServiceDefaults();
 */
 builder.AddNpgsqlDataSource("hellodb");
 
-
 // Standard boilerplate code
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();

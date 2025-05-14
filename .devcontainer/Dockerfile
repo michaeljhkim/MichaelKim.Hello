@@ -12,6 +12,7 @@ RUN curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg
     apt-get -y update
 
 RUN curl -fsSL https://aka.ms/install-azd.sh | bash
+RUN npm install -g @azure/static-web-apps-cli
 
 RUN apt-get -y install pgadmin4
 

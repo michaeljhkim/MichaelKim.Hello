@@ -16,4 +16,23 @@ A full-stack web project showcasing personal information through a React fronten
 - ✅ React frontend that fetches and displays backend data.
 - ✅ Data retreival from NASA APIs for daily image display
 
+
+## Deployment
+
+### Backend - From Root
+```
+cd michaelkim.hello.backend
+dotnet publish -c Release
+zip -r publish.zip michaelkim.hello.backend.ApiService/bin/Release/net9.0/publish
+az webapp deploy --resource-group <YourResourceGroup> --name <YourWebAppName> --src-path publish.zip
+```
+
+### Frontend - From Root
+```
+swa build
+swa deploy --env=production --deployment-token=<YourDeploymentToken>
+```
+
+
+
 - NOTE: may break with certain browser extensions
