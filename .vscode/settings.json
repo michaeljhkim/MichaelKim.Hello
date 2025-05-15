@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0762bda5-94c6-4552-a79d-3f28b552f277/resourceGroups/michaelkim-hello/providers/Microsoft.Web/sites/michaelkim-hello-backend-apiservice",
+    "appService.deploySubpath": "michaelkim.hello.backend/michaelkim.hello.backend.ApiService/bin/Release/net9.0/publish"
+}

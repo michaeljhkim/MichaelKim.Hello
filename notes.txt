@@ -5,21 +5,12 @@ https://www.c-sharpcorner.com/article/building-a-powerful-asp-net-core-web-api-w
 https://www.nuget.org/packages/Npgsql.DependencyInjection
 https://learn.microsoft.com/en-us/dotnet/aspire/database/seed-database-data?tabs=sql-server
 
-RUN BACKEND (from the apphost project):  dotnet run dev
-RUN FRONTEND: npm run dev
-
-- dashboard causes a single error where it fails to connect to an already used port
-- this error leads to many other errors (not fatal for now).
-
-- always run the react side from host when developing, dashboard does not update until next run
-- run 'dotnet dev-certs https --trust' if the certificates are not authenticating properly
-
 - when testing and retrying dev container building, restart docker:
 sudo systemctl restart docker
 - this fixes the issues immediately
 
-- aspire dotnet allows for indirect sql querying through C# function, but does allow raw SQL commands: https://learn.microsoft.com/en-us/ef/core/querying/sql-queries?tabs=sqlserver
-- must credit https://github.com/ibelick/nim?tab=readme-ov-file#
+- aspire dotnet allows for indirect sql querying through C# function, but does allow raw SQL commands: 
+https://learn.microsoft.com/en-us/ef/core/querying/sql-queries?tabs=sqlserver
 
 REMEMBER:
 - must login to azure before doing anything:
@@ -34,7 +25,6 @@ REMEMBER:
 
 TOMORROW:
 - Since the personal website showcases web skills, perhaps I should make HelixWatt just a local app.
-- Run ray trace demo, get the screenshots, and then post them to the personal website.
 - Add screenshots to all project githubs (including the personal website), in addition to adding them to the personal website
 
 - Finish with details of personal website (except for HelixWatt)

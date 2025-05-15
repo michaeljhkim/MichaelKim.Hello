@@ -18,6 +18,7 @@ import {
 	WORK_EXPERIENCE,
 	BLOG_POSTS,
 	SOCIAL_LINKS,
+	getPinnedRepos,
 	getData
 } from './data'
 
@@ -99,13 +100,7 @@ function ProjectMedia({ src }: { src: string }) {
 }
 
 
-function MagneticSocialLink({
-	children,
-	link,
-}: {
-	children: React.ReactNode
-	link: string
-}) {
+function MagneticSocialLink( {children, link}: {children: React.ReactNode, link: string} ) {
 	return (
 		<Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
 			<a href={link} className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700">
@@ -125,10 +120,21 @@ function MagneticSocialLink({
 
 export default function Personal() {
 	const EMAIL = getData("email");
+	const { data, loading, error } = getPinnedRepos("PinnedRepo/github_repos/name");
 
 	return (
-		<motion.main className="space-y-24" variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
+		<motion.main className="space-y-20" variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
 			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+				<div className="flex-1">
+					<p className="text-zinc-600 dark:text-zinc-400">
+						The backend of this web application is built with .NET Aspire and PostgreSQL, while the frontend is developed using React and Next.js with TypeScript. 
+						The application is hosted on Microsoft Azure, with the PostgreSQL database managed via Supabase.
+					</p>
+				</div>
+			</motion.section>
+
+			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+				<h3 className="mb-5 text-lg font-medium">About Me</h3>
 				<div className="flex-1">
 					<p className="text-zinc-600 dark:text-zinc-400">
 						The backend of this web application is built with .NET Aspire and PostgreSQL, while the frontend is developed using React and Next.js with TypeScript. 
@@ -189,6 +195,26 @@ export default function Personal() {
 			</motion.section>
 
 			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+				<h3 className="mb-3 text-lg font-medium">Blog</h3>
+				<div className="flex flex-col space-y-0">
+					<AnimatedBackground enableHover className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80" transition={{ type: 'spring', bounce: 0, duration: 0.2 }}>
+						{data.map((entry) => (
+							<Link key={entry.uuid} className="-mx-3 rounded-xl px-3 py-3" href={entry.link} data-id={entry.uuid}>
+								<div className="flex flex-col space-y-1">
+									<h4 className="font-normal dark:text-zinc-100">
+										{entry.name}
+									</h4>
+									<p className="text-zinc-500 dark:text-zinc-400">
+										{entry.description}
+									</p>
+								</div>
+							</Link>
+						))}
+					</AnimatedBackground>
+				</div>
+			</motion.section>
+
+			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
 				<h3 className="mb-5 text-lg font-medium">Connect</h3>
 				<p className="mb-5 text-zinc-600 dark:text-zinc-400">
 					Feel free to contact me at{' '}
@@ -210,10 +236,7 @@ export default function Personal() {
 
 
 /*
-			<motion.section
-				variants={VARIANTS_SECTION}
-				transition={TRANSITION_SECTION}
-			>
+			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
 				<h3 className="mb-3 text-lg font-medium">Blog</h3>
 				<div className="flex flex-col space-y-0">
 					<AnimatedBackground
@@ -226,12 +249,7 @@ export default function Personal() {
 						}}
 					>
 						{BLOG_POSTS.map((post) => (
-							<Link
-								key={post.uid}
-								className="-mx-3 rounded-xl px-3 py-3"
-								href={post.link}
-								data-id={post.uid}
-							>
+							<Link key={post.uid} className="-mx-3 rounded-xl px-3 py-3" href={post.link} data-id={post.uid}>
 								<div className="flex flex-col space-y-1">
 									<h4 className="font-normal dark:text-zinc-100">
 										{post.title}

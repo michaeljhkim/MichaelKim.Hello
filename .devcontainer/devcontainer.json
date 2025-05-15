@@ -35,5 +35,5 @@
 			}
 		}
 	},
-	"postStartCommand": "dotnet dev-certs https --trust"
+	"postStartCommand": "dotnet dev-certs https --trust && npm install -g @azure/static-web-apps-cli"
 }
