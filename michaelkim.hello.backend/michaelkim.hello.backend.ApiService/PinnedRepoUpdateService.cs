@@ -3,11 +3,10 @@ using HtmlAgilityPack;
 using Microsoft.Extensions.Caching.Memory;
 
 /*
-- This BackgroundService class runs once an hour
-- data scraps from my personal gihub page
-- and procces data from the pinned repositories
-
-- Created so that I can automatically update the projects section 
+- Background service executed once every 24 hours.
+- Scrapes data from personal GitHub profile (not available via GitHub API).
+- Processes pinned repositories.
+- Automates updates to the projects section in Frontend.
 */
 
 public class PinnedRepoUpdateService : BackgroundService
@@ -32,7 +31,7 @@ public class PinnedRepoUpdateService : BackgroundService
             try
             {
                 var repos = await FetchPinnedReposAsync(stoppingToken);
-                _cache.Set("PinnedRepos", repos, TimeSpan.FromHours(12));
+                _cache.Set("PinnedRepos", repos, TimeSpan.FromHours(24));
                 _logger.LogInformation("Fetched pinned repositories at {Time}", DateTimeOffset.Now);
             }
             catch (Exception ex)
@@ -40,7 +39,7 @@ public class PinnedRepoUpdateService : BackgroundService
                 _logger.LogError(ex, "Failed to fetch pinned repos");
             }
 
-            await Task.Delay(TimeSpan.FromHours(1), stoppingToken); // wait before next fetch
+            await Task.Delay(TimeSpan.FromHours(24), stoppingToken); // wait before next fetch
         }
     }
 
