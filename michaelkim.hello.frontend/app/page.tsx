@@ -16,7 +16,7 @@ import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
 	PROJECTS,
 	WORK_EXPERIENCE,
-	BLOG_POSTS,
+	PROJECT_INFO,
 	SOCIAL_LINKS,
 	getPinnedRepos,
 	getData
@@ -118,12 +118,15 @@ function MagneticSocialLink( {children, link}: {children: React.ReactNode, link:
 	)
 }
 
+/*
+MUST REMEMBER TO ADD PROPER DESCRIPTIONS TO GITHUB REPOSITORIES
+*/
 export default function Personal() {
 	const EMAIL = getData("email");
 	const { data, loading, error } = getPinnedRepos("PinnedRepo/github_repos/name");
 
 	return (
-		<motion.main className="space-y-20" variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
+		<motion.main className="space-y-15" variants={VARIANTS_CONTAINER} initial="hidden" animate="visible">
 			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
 				<div className="flex-1">
 					<p className="text-zinc-600 dark:text-zinc-400">
@@ -134,11 +137,14 @@ export default function Personal() {
 			</motion.section>
 
 			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-				<h3 className="mb-5 text-lg font-medium">About Me</h3>
+				<h3 className="mb-5 text-2xl font-medium">About Me</h3>
 				<div className="flex-1">
 					<p className="text-zinc-600 dark:text-zinc-400">
-						The backend of this web application is built with .NET Aspire and PostgreSQL, while the frontend is developed using React and Next.js with TypeScript. 
-						The application is hosted on Microsoft Azure, with the PostgreSQL database managed via Supabase.
+						I'm currently studying Computer Science in the co-op program at McMaster University and will be available for an internship lasting 
+						anywhere from 4 to 16 months starting in May 2025. Along the way, I've collaborated with other Computer Science students to organize 
+						academic events and mentor younger peers, which has been really rewarding. I'm comfortable working with .NET, including containers, 
+						Aspire, and database integration. I've also built a variety of projects, like full-stack web apps, SQL databases, and even game engines, 
+						so I've gained a solid mix of skills across different areas.
 					</p>
 				</div>
 			</motion.section>
@@ -146,22 +152,40 @@ export default function Personal() {
 			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
 				<h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
 				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-					{PROJECTS.map((project) => (
-						<div key={project.name} className="space-y-2">
-							<div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-								<ProjectMedia src={project.media} />
+					{PROJECTS.map((project) => {
+						const isInternal = project.link.startsWith('#');
+
+						const handleInternalClick = (e: React.MouseEvent) => {
+							e.preventDefault();
+							const targetId = project.link.slice(1);
+							const element = document.getElementById(targetId);
+							if (element) {
+								element.scrollIntoView({ behavior: 'smooth' });
+							}
+						};
+
+						return (
+							<div key={project.name} className="space-y-2">
+								<div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
+									<ProjectMedia src={project.media} />
+								</div>
+									<div className="px-1">
+										<a href={project.link} 
+										onClick={isInternal ? handleInternalClick : undefined} 
+										target={isInternal ? undefined : '_blank'} 
+										rel={isInternal ? undefined : 'noopener noreferrer'} 
+										className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
+										>
+											{project.name}
+											<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full"></span>
+										</a>
+										<p className="text-base text-zinc-600 dark:text-zinc-400">
+											{project.description}
+										</p>
+									</div>
 							</div>
-							<div className="px-1">
-								<a className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50" href={project.link} target="_blank">
-									{project.name}
-									<span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 transition-all duration-200 group-hover:max-w-full"></span>
-								</a>
-								<p className="text-base text-zinc-600 dark:text-zinc-400">
-									{project.description}
-								</p>
-							</div>
-						</div>
-					))}
+						);
+					})}
 				</div>
 			</motion.section>
 
@@ -194,8 +218,8 @@ export default function Personal() {
 				</div>
 			</motion.section>
 
-			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-				<h3 className="mb-3 text-lg font-medium">Blog</h3>
+			<motion.section id="project-links" variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+				<h3 className="mb-3 text-lg font-medium">Featured Projects</h3>
 				<div className="flex flex-col space-y-0">
 					<AnimatedBackground enableHover className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80" transition={{ type: 'spring', bounce: 0, duration: 0.2 }}>
 						{data.map((entry) => (

@@ -18,7 +18,7 @@ type WorkExperience = {
 	id: string
 }
 
-type BlogPost = {
+type ProjectInfo = {
 	title: string
 	description: string
 	link: string
@@ -42,14 +42,14 @@ export const PROJECTS: Project[] = [
 	{
 		name: 'Yurrgoht Game Engine',
 		description: 'A Vulkan game engine developed using the Entity Component structure. Includes Scripting, GUI Editing, and reflection-based serialization.',
-		link:  'https://github.com/michaeljhkim/YURRGOHT_ENGINE',
+		link:  '#project-links',
 		media: '/videos/yurrgoht_engine_demo.mp4',
 		id: 'project1',
 	},
 	{
 		name: 'PT-ImGen',
 		description: 'Accurate path-tracing algorithm, generating standard resolution images.',
-		link:  'https://github.com/michaeljhkim/PT-ImGen',
+		link:  '#project-links',
 		media: '/images/ray_trace_demo.png',
 		id: 'project2',
 	}
@@ -66,7 +66,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 	}
 ]
 
-export const BLOG_POSTS: BlogPost[] = [
+export const PROJECT_INFO: ProjectInfo[] = [
 	{
 		title: 'MichaelKim.Hello Github',
 		description: 'Source code for this Web Application',
@@ -82,39 +82,46 @@ type PinnedRepo = {
 	uuid: string;
 };
 
+// This function retrieves the github pinned repos, scrapped from personal github page
 export function getPinnedRepos(endpointName: string) {
 	const [data, setData] = useState<PinnedRepo[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<Error | null>(null);
 
-	fetch(`${process.env.HELLO_API}/${endpointName}`)
-		.then((res) => {
-			if (!res.ok) throw new Error("Network response was not ok");
-			return res.json();
-		})
-		.then((json: PinnedRepo[]) => {
-			console.log("Data from backend (PostgreSQL):", json);
-			setData(json);
-		})
-		.catch((err) => {
-			console.error("Error fetching data:", err);
-			setError(err);
-		})
-		.finally(() => setLoading(false));
+  	useEffect(() => {
+		fetch(`${process.env.HELLO_API}/${endpointName}`)
+			.then((res) => {
+				if (!res.ok) throw new Error("Network response was not ok");
+				return res.json();
+			})
+			.then((json: PinnedRepo[]) => {
+				console.log("Data from backend (PostgreSQL):", json);
+				setData(json);
+			})
+			.catch((err) => {
+				console.error("Error fetching data:", err);
+				setError(err);
+			})
+			.finally(() => setLoading(false));
+	}, []);
 
 	return { data, loading, error };
 }
-// This functions retreievs the data from a specified endpoint
+
+// This functions retrieves the data from a specified endpoint
 export function getData(endpoint_name: string) {
 	const [data, setData] = useState<string>("Loading...");
 	
-	fetch(`${process.env.HELLO_API}/${endpoint_name}`)
-		.then((res) => res.text())
-		.then((text) => {
-			console.log("Data from backend (postgresql):", text);
-			setData(text);
-		})
-		.catch((err) => console.error("Error fetching data:", err));
+  	useEffect(() => {
+		fetch(`${process.env.HELLO_API}/${endpoint_name}`)
+			.then((res) => res.text())
+			.then((text) => {
+				console.log("Data from backend (postgresql):", text);
+				setData(text);
+			})
+			.catch((err) => console.error("Error fetching data:", err));
+	}, []);
+
 	return data;
 }
 

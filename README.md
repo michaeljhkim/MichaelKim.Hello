@@ -1,6 +1,6 @@
 # MichaelKim.Hello
 
-Full-stack web application developed using React, .NET Aspire, and PostgreSQL. It also features NASA photos for fun!
+Full-Stack Portfolio Web Application built with React, .NET Aspire, and PostgreSQL.
 
 **Live Website**: [MichaelKim.Hello](https://gray-water-0fed75c0f.6.azurestaticapps.net/)
 

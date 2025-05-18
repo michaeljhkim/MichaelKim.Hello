@@ -67,10 +67,8 @@ public class PinnedRepoUpdateService : BackgroundService
         var repos = new List<PinnedRepo>();
         using var transaction = await connection.BeginTransactionAsync(cancellationToken);
 
-        if (pinnedRepoCards != null)
-        {
-            foreach (var card in pinnedRepoCards)
-            {
+        if (pinnedRepoCards != null) {
+            foreach (var card in pinnedRepoCards) {
                 var linkNode = card.SelectSingleNode(".//a[contains(@class, 'text-bold')]");
                 var name = linkNode?.InnerText.Trim();
                 var href = linkNode?.GetAttributeValue("href", "").Trim();
@@ -78,11 +76,9 @@ public class PinnedRepoUpdateService : BackgroundService
                 var descNode = card.SelectSingleNode(".//p[contains(@class, 'pinned-item-desc')]");
                 var description = descNode?.InnerText.Trim() ?? "";
 
-                if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(href))
-                {
+                if (!string.IsNullOrWhiteSpace(name) && !string.IsNullOrWhiteSpace(href)) {
                     var fullLink = $"{baseUrl}{href}";
-                    repos.Add(new PinnedRepo
-                    {
+                    repos.Add(new PinnedRepo {
                         Name = name,
                         Description = description,
                         Link = fullLink
