@@ -143,11 +143,13 @@ export default function Personal() {
 			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
 				<div className="flex-1">
 					<p className="text-zinc-600 dark:text-zinc-400">
-						The backend of this web application is built with .NET Aspire and PostgreSQL, while the frontend is developed using React and Next.js with TypeScript. 
-						The application is hosted on Microsoft Azure, with the PostgreSQL database managed via Supabase.
+					This Web Application is built around three core components: the Database (PostgreSQL), the Backend (.NET Aspire), and the Frontend (React).
+					<br/> 
+					The Database is hosted on Supabase; the Backend and Frontend are deployed via Microsoft Azure.
 					</p>
 				</div>
 			</motion.section>
+
 
 			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
 				<h3 className="mb-5 text-2xl font-medium">About Me</h3>

@@ -7,7 +7,7 @@ Full-Stack Portfolio Web Application built with React, .NET Aspire, and PostgreS
 
 ## 🚀 Features
 
-- ✅ Data-scrapped personal github in order to automate project showcase. 
+- ✅ Data-scraped personal github in order to automate project showcase. 
 - ✅ Data stored and managed on a Postgresql database (via Supabase).
 - ✅ Frontend displays fetched backend data.
 - ✅ Hosted on Microsoft Azure.
