@@ -58,7 +58,7 @@ export const PROJECTS: Project[] = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
 	{
 		company: 'Bevy Foundation',
-		title: 'Volunteer Contributer',
+		title: 'Quality Assurance (Volunteer)',
 		start: '2024',
 		end: 'Present',
 		link: 'https://bevyengine.org/foundation/',

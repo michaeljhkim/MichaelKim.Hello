@@ -99,7 +99,9 @@ function ProjectMedia({ src }: { src: string }) {
 	)
 }
 
-
+/*
+This function displays all of the important personal links (email, github, linkedin)
+*/
 function MagneticSocialLink( {children, link}: {children: React.ReactNode, link: string} ) {
 	return (
 		<Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
@@ -119,7 +121,18 @@ function MagneticSocialLink( {children, link}: {children: React.ReactNode, link:
 }
 
 /*
-MUST REMEMBER TO ADD PROPER DESCRIPTIONS TO GITHUB REPOSITORIES
+This function is the entire structure of the body, it calls all other functions and displays the information as formatted.
+
+The structure is as follows (since I cannot add comments):
+
+Personal()
+├── Website Summary
+├── About Me
+├── Selected Projects
+│   └── (If associated link has #, it scrolls to Featured Projects sections) 
+├── Work Experience
+├── Featured Projects
+└── Connect
 */
 export default function Personal() {
 	const EMAIL = getData("email");
@@ -219,7 +232,7 @@ export default function Personal() {
 			</motion.section>
 
 			<motion.section id="project-links" variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-				<h3 className="mb-3 text-lg font-medium">Featured Projects</h3>
+				<h3 className="mb-3 text-lg font-medium">Featured Projects (Source Code)</h3>
 				<div className="flex flex-col space-y-0">
 					<AnimatedBackground enableHover className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80" transition={{ type: 'spring', bounce: 0, duration: 0.2 }}>
 						{data.map((entry) => (
@@ -257,34 +270,3 @@ export default function Personal() {
 		</motion.main>
 	)
 }
-
-
-/*
-			<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-				<h3 className="mb-3 text-lg font-medium">Blog</h3>
-				<div className="flex flex-col space-y-0">
-					<AnimatedBackground
-						enableHover
-						className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
-						transition={{
-							type: 'spring',
-							bounce: 0,
-							duration: 0.2,
-						}}
-					>
-						{BLOG_POSTS.map((post) => (
-							<Link key={post.uid} className="-mx-3 rounded-xl px-3 py-3" href={post.link} data-id={post.uid}>
-								<div className="flex flex-col space-y-1">
-									<h4 className="font-normal dark:text-zinc-100">
-										{post.title}
-									</h4>
-									<p className="text-zinc-500 dark:text-zinc-400">
-										{post.description}
-									</p>
-								</div>
-							</Link>
-						))}
-					</AnimatedBackground>
-				</div>
-			</motion.section>
-*/
