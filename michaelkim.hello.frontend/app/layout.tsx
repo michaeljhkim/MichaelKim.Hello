@@ -30,7 +30,7 @@ export default function RootLayout( {children}: Readonly <{children: React.React
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body className={`${geist.variable} ${geistMono.variable} bg-gradient-to-b from-black via-gray-800 to-white bg-[position:0_-200px] tracking-tight antialiased dark:from-black dark:via-zinc-850 dark:to-zinc-950`}>
-			<ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="system">
+			<ThemeProvider enableSystem={true} attribute="class" storageKey="theme" defaultTheme="dark">
 				<div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
 				<div className="relative mx-auto w-full max-w-screen-xl flex-1 px-4 pt-20">
 					<Header />
